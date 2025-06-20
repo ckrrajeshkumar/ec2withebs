@@ -4,6 +4,6 @@ terraform{
     version = "6.0.0"
   }
 }
-providr "aws" {
+provider "aws" {
   region = "us-east-1"
 }
