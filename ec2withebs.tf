@@ -6,7 +6,7 @@ resource "aws_vpc" "babaji-vpc"{
 }
 resource "aws_subnet" "babaji-pubsub"{
   vpc_id = aws_vpc.babaji-vpc.id
-  avaialbility_zone = var.pubaz
+  availability_zone = var.pubaz
   cidr_block = var.pubcidr
   map_public_ip_on_launch =true
   tags ={
@@ -63,8 +63,7 @@ resource "aws_security_group" "babaji-sg"{
 resource "aws_instance" "babaji-web"{
   ami = var.ami-id
   instance_type = var.instance-type
-  vpc_security_group_ids = aws_security_group.babaji-sg.id
-  vpc_id = aws_vpc.babaji-vpc.id
+  vpc_security_group_ids = [aws_security_group.babaji-sg.id]
   subnet_id = aws_subnet.babaji-pubsub.id
   key_name = "babaji-RDS"
   tags={
