@@ -52,7 +52,7 @@ resource "aws_security_group" "babaji-sg"{
     protocol ="tcp"
     cidr_blocks = var.inboundcidr1
   }
-  egrees {
+  egress {
     description = "allow outbound traffic"
     from_port = "0"
     to_port = "0"
